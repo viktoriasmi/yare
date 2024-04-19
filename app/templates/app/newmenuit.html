@@ -1,0 +1,11 @@
+{% extends "app/layout.html" %}
+{% block content %}
+
+<h3>Добавить новое блюдо в меню</h3>
+<form method="POST" enctype="multipart/form-data"> {% csrf_token %} 
+    <div>
+        {{ menuitemform.as_p }}
+        <button type="submit" class="save btn btn-default"> Cохранить блюдо </button>
+    </div>
+</form>
+{% endblock %}

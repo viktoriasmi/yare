@@ -1,0 +1,15 @@
+﻿{% extends "app/layout.html" %}
+{% block content %}
+<h2>{{ title }}</h2>
+<br />
+{% for menuitem in menuitems %}
+<hr />
+<div class="">
+    <h2> {{menuitem.name}} </h2>
+    <p> Ингредиенты: {{menuitem.ingredients}} </p>
+    <p> Категория: {{menuitem.category}} </p>
+    <p> Цена: {{menuitem.price}} руб.</p>
+    <p><a href="{% url 'menuit' parametr=menuitem.id %}"> ОТКРЫТЬ </a></p>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,37 @@
+﻿{% extends "app/layout.html" %}
+{% block content %}
+<h2> {{menuit_1.name}} </h2>
+<p> Ингредиенты: {{menuit_1.ingredients}} </p>
+<p> Категория: {{menuit_1.category}} </p>
+<p> Цена: {{menuit_1.price}} руб.</p>
+<p> Калории: {{menuit_1.calories}} ккал</p>
+<p><a href="{% url 'menu' %}"> НАЗАД </a></p>
+
+{% if menuit_1.image and menuit_1.image.url != '/media/temp.jpg' %}
+<img src="{{ menuit_1.image.url }}" alt="Фото блюда" width="600" />
+{% endif %}
+
+
+{% if user.is_authenticated %}
+
+<h3>Добавить отзыв</h3>
+<form method="POST">
+    {% csrf_token %}
+    <div>
+        {{form.as_p}}
+        <button type="submit" class="save btn btn-default"> Отправить отзыв </button>
+    </div>
+</form>
+{% else %}
+<h3>Для добавления своего отзыва, пожалуйста, авторизуйтесь</h3>
+{% endif %}
+<br />
+<hr />
+{% for review in reviews %}
+<hr />
+<h6> {{review.rating}} звезд </h6>
+<h5> {{review.author}} </h5>
+<p> {{review.text|linebreaksbr}} </p>
+{% endfor %}
+<p><a href="{% url 'menu' %}"> НАЗАД </a></p>
+{% endblock %}

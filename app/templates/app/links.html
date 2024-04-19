@@ -1,0 +1,13 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<p>Один из сайтов-вдохновителей:</p>
+<a href ="https://pskov.sushi-darom.com" target="_blank"> <img src="{% static 'app/content/sushidarom.jpg' %}" alt="Logo 1" id="logoimg"/></a>
+<p>Сайт, который помог придумать дизайн</p>
+<a href ="https://ru.pinterest.com/search/pins/?q=дизайн%20сайта%20доставка%20японской%20еды&rs=rs&eq=&etslf=3443" target="_blank"> <img src="{% static 'app/content/pinterest.jpg' %}" alt="Logo 1" id="logoimg"/></a>
+<p>Вдохновитель названия:</p>
+<a href ="https://www.youtube.com/watch?v=yWDAw2nsIjw" target="_blank"> <img src="{% static 'app/content/youtube.png' %}" alt="Logo 1" id="logoimg"/></a>
+
+{% endblock %}
